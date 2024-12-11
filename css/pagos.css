@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1, h2 {
+    text-align: center;
+  }
+  
+  .order-summary {
+    margin-top: 20px;
+  }
+  
+  .cart-items {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .cart-items li {
+    margin-bottom: 10px;
+  }
+  
+  .order-total {
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+  
+  .payment-options {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  .payment-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .payment-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .payment-form {
+    display: none;
+    margin-top: 20px;
+  }
+  
+  .payment-form.active {
+    display: block;
+  }
+  
+  .payment-form label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .payment-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .payment-form button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .payment-form button:hover {
+    background-color: #218838;
+  }
+  

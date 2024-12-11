@@ -1,0 +1,598 @@
+/* Estilo general */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: red;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 60px; /* Altura fija de la barra de navegación */
+    align-items: center;
+    padding: 30px 30px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .navbar .logo {
+    display: flex;
+    align-items: center; /* Centrado vertical del logo */
+    position: relative; /* Para ajustar el logo sin afectar el flujo del diseño */
+  }
+
+  .navbar .logo img {
+    height: 120px;         /* Logo más grande */
+    max-height: 100%;
+    width: auto;           /* Mantiene la proporción del logo */
+    object-fit: contain;   /* Asegura que no se deforme */
+    left: 0;               /* Opcional: Alinea el logo hacia la izquierda */
+    padding-top: 10px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    margin-right: 20px; 
+  }
+  
+  .nav-links li {
+    position: relative;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+    padding: 0px 10px 0px 0px;
+  }
+  
+  .nav-links li a:hover {
+    color: #7b0505;
+  }
+  
+  /* Submenús */
+  .nav-links .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    top: 100%;
+    left: 0;
+    width: 150px;
+    border-radius: 5px;
+  }
+  
+  .nav-links .dropdown-menu li {
+    padding: 5px 10px;
+  }
+  
+  .nav-links .dropdown-menu li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav-links .dropdown-menu li a:hover {
+    color: #7b0505;
+  }
+  
+  .nav-links .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  /* Contenedor de búsqueda */
+  .search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .search-input {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  .search-btn {
+    background-color: white;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .search-btn:hover {
+    background-color: #7b0505;
+  }
+  /* Botón de carrito */
+  .cart-container {
+    position: relative;
+    margin-left: 15px;
+  }
+  
+  .cart-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .cart-btn:hover {
+    color: #555;
+  }
+  
+  .cart-count {
+    background: red;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 6px;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+  }
+.cart-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: #444;
+  border-left: 1px solid #7b0505;;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  z-index: 1000;
+  display: block; /* Inicialmente oculto */
+}
+
+.cart-menu h2 {
+  margin-top: 0;
+}
+
+.cart-menu .cart-items {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-menu .cart-items li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-items .remove-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.cart-items .remove-btn:hover {
+  background-color: darkred;
+}
+
+.cart-menu .cart-total {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cart-menu.hidden {
+  display: none; /* Clase para ocultar */
+}
+
+
+  /* Botón para dispositivos móviles */
+  .menu-toggle {
+    display: none;
+    background: none;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      padding: 10px 0;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  
+    .search-container {
+      margin-top: 10px;
+      width: 100%;
+      justify-content: flex-end;
+    }
+  
+    .search-input {
+      width: 70%;
+    }
+  }
+  
+  .slider {
+    position: relative;
+    width: 100%; /* Ajusta el ancho del slider */
+    height: 61vh;
+    margin: auto;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Contenedor de los slides */
+  .slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  /* Cada slide individual */
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    object-fit: cover;
+  }
+  
+  .slide img {
+    width: 100%;
+    display: block;
+  }
+  
+  /* Botones de navegación */
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 100;
+    border-radius: 50%;
+  }
+  
+  .prev {
+    left: 10px;
+  }
+  
+  .next {
+    right: 10px;
+  }
+  
+  .prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .categories {
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    text-align: center;
+  }
+  
+  .categories-header h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  /* Contenedor de tarjetas en filas de 3 */
+  .categories-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  
+  /* Estilos de cada tarjeta */
+  .category-card {
+    display: block; /* Para que toda la tarjeta sea clicable */
+  text-decoration: none;
+  color: inherit; /* Hereda el color del texto normal */
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Título y descripción de las categorías */
+  .category-card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .category-card p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Diseño responsivo */
+  @media screen and (max-width: 768px) {
+    .categories-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .categories-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+/* Estilos para la sección del catálogo */
+.catalog {
+  padding: 50px 20px;
+  background-color: #444;
+  text-align: center;
+}
+
+.catalog-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: white;
+}
+
+/* Contenedor de las tarjetas */
+.catalog-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste para 4 por fila */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilo de las tarjetas */
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card-img {
+  width: 100%;
+  height: 180px; /* Ajuste para reducir el tamaño */
+  object-fit: contain;
+}
+
+.card-content {
+  padding: 15px; /* Ajuste para ahorrar espacio */
+}
+
+.card-title {
+  font-size: 1.2rem; /* Reducido para adaptarse */
+  color: #555;
+  margin: 10px 0;
+}
+
+.card-description {
+  font-size: 0.9rem; /* Reducido ligeramente */
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.card-button {
+  display: inline-block;
+  padding: 8px 15px; /* Botón más pequeño */
+  font-size: 0.9rem;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+}
+/* Hero Image with Text Section */
+.hero-image-text {
+  position: relative;
+  background-image: url('/assets/images/services.jpg'); /* Ruta de la imagen */
+  background-size: cover;
+  background-position: center;
+  height: 400px; /* Ajusta según tu preferencia */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-image-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.btn-explore {
+  display: inline-block;
+  background-color: #d9534f;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn-explore:hover {
+  background-color: #c9302c;
+}
+
+/* Estilos generales del footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Estilos de cada sección */
+.footer-about, .footer-links, .footer-socials {
+  margin-bottom: 20px;
+}
+
+.footer-about h3, .footer-links h3, .footer-socials h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.footer-about p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Estilos de enlaces */
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin: 5px 0;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #007bff;
+}
+
+/* Estilos de redes sociales */
+.footer-socials .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.footer-socials img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+.footer-socials img:hover {
+  transform: scale(1.1);
+}
+
+/* Derechos de autor */
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  color: #aaa;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Elimina el estilo de los enlaces */
+.category-card {
+  display: block; /* Para que toda la tarjeta sea clicable */
+  text-decoration: none;
+  color: inherit; /* Hereda el color del texto normal */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
